@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="theme-color" content="#0d2b45">
-    <meta name="description" content="PhotoForge Studio – Advanced Web-Based Image Editor with Auto-Save & Local Storage">
-    <title>PhotoForge Studio</title>
+    <meta name="description" content="PhotoForge Studio – Advanced Web-Based Image Editor with Auto-Save & Local Storage – Mobile Friendly">
+    <title>PhotoForge Studio – Auto-Save Local Image Editor</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tui-color-picker@2.2.8/dist/tui-color-picker.min.css">
@@ -73,6 +73,7 @@
             -webkit-tap-highlight-color: transparent;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            touch-action: manipulation;
         }
 
         #pf-app {
@@ -85,6 +86,7 @@
                 "left middle right";
             width: 100vw;
             height: 100vh;
+            height: 100dvh;
             background: var(--bg-primary);
             overflow: hidden;
             position: relative;
@@ -103,7 +105,6 @@
             grid-template-columns: var(--left-panel-width) 1fr var(--right-panel-width);
         }
 
-        /* ================= BANNER ================= */
         #banner {
             grid-area: banner;
             background: linear-gradient(135deg, #000000 0%, #0a1628 30%, #0d2b45 60%, #000000 100%);
@@ -111,11 +112,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 12px;
+            padding: 0 8px;
             z-index: 30;
             min-height: 50px;
             overflow-x: auto;
-            gap: 8px;
+            gap: 4px;
         }
 
         .pf-brand {
@@ -140,13 +141,14 @@
 
         .banner-actions {
             display: flex;
-            gap: 5px;
+            gap: 4px;
             align-items: center;
             flex-wrap: nowrap;
             overflow-x: auto;
             scrollbar-width: none;
             -ms-overflow-style: none;
             flex-shrink: 0;
+            -webkit-overflow-scrolling: touch;
         }
         .banner-actions::-webkit-scrollbar {
             display: none;
@@ -157,7 +159,7 @@
             border: none;
             border-radius: var(--radius-sm);
             color: #fff;
-            padding: 6px 9px;
+            padding: 7px 10px;
             font-size: 0.68rem;
             font-weight: 600;
             cursor: pointer;
@@ -173,6 +175,7 @@
             user-select: none;
             -webkit-user-select: none;
             touch-action: manipulation;
+            min-height: 34px;
         }
         .banner-btn:hover {
             background: linear-gradient(25deg, #9fb1d3, #371cd3f5);
@@ -187,7 +190,7 @@
             border: 1px solid var(--border-accent);
             border-radius: var(--radius-sm);
             color: #ccc;
-            padding: 6px 9px;
+            padding: 7px 10px;
             font-size: 0.68rem;
             font-weight: 600;
             cursor: pointer;
@@ -202,6 +205,7 @@
             user-select: none;
             -webkit-user-select: none;
             touch-action: manipulation;
+            min-height: 34px;
         }
         .banner-btn-secondary:hover {
             background: rgba(255, 255, 255, 0.2);
@@ -219,7 +223,6 @@
             flex-shrink: 0;
         }
 
-        /* ================= MENU BAR ================= */
         #menu-bar {
             grid-area: menu;
             background: #000000;
@@ -227,12 +230,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
-            padding: 0 10px;
+            gap: 4px;
+            padding: 0 8px;
             overflow-x: auto;
             scrollbar-width: none;
             -ms-overflow-style: none;
             z-index: 25;
+            -webkit-overflow-scrolling: touch;
         }
         #menu-bar::-webkit-scrollbar {
             display: none;
@@ -243,7 +247,7 @@
             border: 1px solid var(--border-accent);
             border-radius: var(--radius-sm);
             color: #ccc;
-            padding: 5px 9px;
+            padding: 6px 10px;
             font-size: 0.68rem;
             font-weight: 600;
             cursor: pointer;
@@ -258,6 +262,7 @@
             user-select: none;
             -webkit-user-select: none;
             touch-action: manipulation;
+            min-height: 30px;
         }
         .menu-btn:hover {
             background: rgba(255, 255, 255, 0.18);
@@ -268,7 +273,6 @@
             transform: scale(0.94);
         }
 
-        /* ================= LEFT PANEL ================= */
         #left {
             grid-area: left;
             background: var(--side);
@@ -281,6 +285,7 @@
             min-width: 0;
             opacity: 1;
             transition: opacity 0.3s ease;
+            -webkit-overflow-scrolling: touch;
         }
         #left.closed {
             opacity: 0;
@@ -327,11 +332,12 @@
             border-radius: 2px;
             outline: none;
             cursor: pointer;
+            touch-action: manipulation;
         }
         .pf-slider-group input[type="range"]::-webkit-slider-thumb {
             -webkit-appearance: none;
-            width: 13px;
-            height: 13px;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
             background: var(--accent);
             border: 2px solid #fff;
@@ -339,8 +345,8 @@
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
         }
         .pf-slider-group input[type="range"]::-moz-range-thumb {
-            width: 13px;
-            height: 13px;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
             background: var(--accent);
             border: 2px solid #fff;
@@ -359,9 +365,10 @@
             color: var(--text-muted);
             font-size: 0.62rem;
             transition: var(--transition);
-            padding: 1px;
+            padding: 2px;
             background: none;
             border: none;
+            touch-action: manipulation;
         }
         .pf-slider-reset:hover {
             color: #fff;
@@ -369,7 +376,7 @@
 
         .action-tool {
             justify-content: center;
-            height: 34px;
+            height: 38px;
             width: 100%;
             margin: 2px 0;
             color: #fff;
@@ -402,7 +409,6 @@
             font-size: 0.75rem;
         }
 
-        /* ================= LEFT TOGGLE BUTTON ================= */
         #left-toggle-btn {
             position: fixed;
             left: 0;
@@ -442,7 +448,6 @@
             transform: rotate(180deg);
         }
 
-        /* ================= RIGHT PANEL (GALLERY) ================= */
         #right {
             grid-area: right;
             background: var(--side);
@@ -455,6 +460,7 @@
             min-width: 0;
             opacity: 1;
             transition: opacity 0.3s ease;
+            -webkit-overflow-scrolling: touch;
         }
         #right.closed {
             opacity: 0;
@@ -518,16 +524,18 @@
             border: none;
             color: var(--accent-light);
             cursor: pointer;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             transition: var(--transition);
-            padding: 3px;
+            padding: 4px;
+            touch-action: manipulation;
+            min-width: 28px;
+            min-height: 28px;
         }
         .gallery-item-actions button:hover {
             color: #fff;
             transform: scale(1.15);
         }
 
-        /* ================= MIDDLE ================= */
         #middle {
             grid-area: middle;
             background: var(--bg-surface);
@@ -547,6 +555,7 @@
             width: 100%;
             height: 100%;
             position: relative;
+            touch-action: none;
         }
 
         .pf-toast {
@@ -620,7 +629,6 @@
             margin-top: 4px;
         }
 
-        /* ================= TUI OVERRIDES ================= */
         #tui-image-editor .tui-image-editor-container,
         #tui-image-editor .tui-image-editor-main,
         #tui-image-editor .tui-image-editor-submenu,
@@ -639,18 +647,22 @@
             background: #000000;
             border-top: 1px solid var(--border-accent);
             padding: 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
         #tui-image-editor .tui-image-editor-item {
             background: transparent;
             border: none;
             color: #bbb;
-            padding: 7px 9px;
+            padding: 8px 10px;
             font-size: 10px;
             font-family: var(--font-main);
             cursor: pointer;
             transition: all 0.2s ease;
             border-radius: 5px;
             margin: 1px;
+            touch-action: manipulation;
+            min-height: 28px;
         }
         #tui-image-editor .tui-image-editor-item:hover {
             background: rgba(26, 82, 118, 0.2);
@@ -687,8 +699,8 @@
             background: var(--accent);
             border: 2px solid #fff;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
-            width: 13px;
-            height: 13px;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
             cursor: pointer;
         }
@@ -704,7 +716,6 @@
             display: none;
         }
 
-        /* ================= MODAL ================= */
         .pf-modal-overlay {
             position: fixed;
             top: 0;
@@ -719,6 +730,7 @@
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.3s ease;
+            padding: 12px;
         }
         .pf-modal-overlay.pf-active {
             opacity: 1;
@@ -735,8 +747,10 @@
             transform: translateY(-20px);
             transition: transform 0.3s ease;
             max-height: 85vh;
+            max-height: 85dvh;
             overflow-y: auto;
             position: relative;
+            -webkit-overflow-scrolling: touch;
         }
         .pf-modal-overlay.pf-active .pf-modal-box {
             transform: translateY(0);
@@ -772,12 +786,16 @@
             font-size: 1rem;
             cursor: pointer;
             transition: var(--transition);
+            padding: 6px;
+            touch-action: manipulation;
+            min-width: 32px;
+            min-height: 32px;
         }
         .pf-modal-close-btn:hover {
             color: #fff;
         }
         .pf-btn {
-            padding: 6px 10px;
+            padding: 8px 12px;
             border: none;
             border-radius: var(--radius-sm);
             font-size: 0.68rem;
@@ -794,6 +812,7 @@
             user-select: none;
             -webkit-user-select: none;
             touch-action: manipulation;
+            min-height: 36px;
         }
         .pf-btn:active {
             transform: scale(0.93);
@@ -820,7 +839,7 @@
 
         .pf-modal-input {
             width: 100%;
-            padding: 7px 9px;
+            padding: 8px 10px;
             margin-top: 6px;
             background: #0d2b45;
             color: #fff;
@@ -835,7 +854,7 @@
         }
         .pf-modal-select {
             width: 100%;
-            padding: 7px 9px;
+            padding: 8px 10px;
             background: #0d2b45;
             color: #fff;
             border: 1px solid #1a5276;
@@ -854,77 +873,91 @@
             background: rgba(26, 82, 118, 0.3);
             border-radius: 2px;
             outline: none;
+            touch-action: manipulation;
         }
         .pf-modal-range::-webkit-slider-thumb {
             -webkit-appearance: none;
-            width: 14px;
-            height: 14px;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
             background: var(--accent);
             border: 2px solid #fff;
             cursor: pointer;
         }
         .pf-modal-range::-moz-range-thumb {
-            width: 14px;
-            height: 14px;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
             background: var(--accent);
             border: 2px solid #fff;
             cursor: pointer;
         }
 
-        /* ================= RESPONSIVE ================= */
         @media only screen and (max-width: 800px) {
+            :root {
+                --left-panel-width: 200px;
+                --right-panel-width: 190px;
+            }
             #pf-app {
-                grid-template-rows: 50px 38px 1fr;
-            }
-            #pf-app.left-open {
-                grid-template-columns: 200px 1fr 0px;
-            }
-            #pf-app.right-open {
-                grid-template-columns: 0px 1fr 200px;
-            }
-            #pf-app.left-open.right-open {
-                grid-template-columns: 200px 1fr 200px;
+                grid-template-rows: 46px 36px 1fr;
             }
             .pf-brand-text {
                 font-size: 0.82rem;
             }
             .banner-btn,
             .banner-btn-secondary {
-                padding: 5px 7px;
+                padding: 6px 8px;
                 font-size: 0.6rem;
+                min-height: 32px;
             }
             .menu-btn {
-                padding: 4px 7px;
+                padding: 5px 8px;
                 font-size: 0.6rem;
+                min-height: 28px;
             }
             #left-toggle-btn {
-                width: 22px;
+                width: 24px;
                 height: 48px;
                 font-size: 0.65rem;
             }
             #left-toggle-btn:hover {
-                width: 26px;
+                width: 28px;
+            }
+            .action-tool {
+                height: 36px;
+                font-size: 0.6rem;
             }
         }
+
         @media only screen and (max-width: 464px) {
+            :root {
+                --left-panel-width: 168px;
+                --right-panel-width: 150px;
+            }
             #pf-app {
-                grid-template-rows: 44px 34px 1fr;
+                grid-template-rows: 42px 32px 1fr;
+            }
+            #banner {
+                padding: 0 4px;
+                gap: 2px;
             }
             .pf-brand-text {
                 font-size: 0.7rem;
             }
             .banner-btn,
             .banner-btn-secondary {
+                padding: 5px 6px;
+                font-size: 0.55rem;
+                gap: 2px;
+                min-height: 30px;
+                border-radius: 4px;
+            }
+            .menu-btn {
                 padding: 4px 6px;
                 font-size: 0.55rem;
                 gap: 2px;
-            }
-            .menu-btn {
-                padding: 3px 5px;
-                font-size: 0.55rem;
-                gap: 2px;
+                min-height: 26px;
+                border-radius: 4px;
             }
             #left-toggle-btn {
                 width: 20px;
@@ -934,12 +967,84 @@
             #left-toggle-btn:hover {
                 width: 24px;
             }
+            .action-tool {
+                height: 34px;
+                font-size: 0.55rem;
+            }
+            .gallery-item img {
+                width: 30px;
+                height: 30px;
+            }
+            .gallery-item-actions button {
+                min-width: 24px;
+                min-height: 24px;
+                font-size: 0.65rem;
+                padding: 3px;
+            }
+            .pf-modal-box {
+                padding: 14px;
+                width: 95%;
+            }
+            .pf-btn {
+                padding: 7px 10px;
+                font-size: 0.62rem;
+                min-height: 34px;
+            }
+            .pf-toast {
+                font-size: 0.6rem;
+                padding: 8px 14px;
+                bottom: 12px;
+            }
+        }
+
+        @media only screen and (max-width: 340px) {
+            :root {
+                --left-panel-width: 150px;
+                --right-panel-width: 130px;
+            }
+            .banner-btn,
+            .banner-btn-secondary {
+                padding: 4px 5px;
+                font-size: 0.5rem;
+                min-height: 28px;
+            }
+            .menu-btn {
+                padding: 3px 5px;
+                font-size: 0.5rem;
+                min-height: 24px;
+            }
+            .pf-brand-text {
+                font-size: 0.62rem;
+            }
+        }
+
+        @media (orientation: landscape) and (max-height: 500px) {
+            #pf-app {
+                grid-template-rows: 40px 30px 1fr;
+            }
+            #banner {
+                min-height: 40px;
+            }
+            .banner-btn,
+            .banner-btn-secondary {
+                min-height: 28px;
+                padding: 4px 7px;
+                font-size: 0.55rem;
+            }
+            .menu-btn {
+                min-height: 24px;
+                padding: 3px 6px;
+                font-size: 0.55rem;
+            }
+            .action-tool {
+                height: 30px;
+                font-size: 0.55rem;
+            }
         }
     </style>
 </head>
 <body>
     <div id="pf-app" class="">
-        <!-- BANNER -->
         <div id="banner">
             <div class="pf-brand">
                 <span class="pf-brand-text">PhotoForge <span>Studio</span></span>
@@ -958,7 +1063,6 @@
             </div>
         </div>
 
-        <!-- MENU BAR -->
         <div id="menu-bar">
             <button class="menu-btn" id="pf-btn-filter-rainbow"><i class="fa-solid fa-rainbow"></i> Rainbow</button>
             <button class="menu-btn" id="pf-btn-filter-sunset"><i class="fa-solid fa-sun"></i> Sunset</button>
@@ -971,7 +1075,6 @@
             <button class="menu-btn" id="pf-btn-html-img"><i class="fa-solid fa-code"></i> HTML→IMG</button>
         </div>
 
-        <!-- LEFT PANEL -->
         <div id="left" class="closed">
             <h4>Adjustments</h4>
             <div class="pf-slider-group">
@@ -1010,7 +1113,6 @@
             <input type="file" class="pf-file-input" id="pf-file-input" accept="image/*">
         </div>
 
-        <!-- MIDDLE -->
         <div id="middle">
             <div class="pf-editor-wrapper" id="pf-editor-wrapper">
                 <div id="tui-image-editor"></div>
@@ -1023,18 +1125,15 @@
             </div>
         </div>
 
-        <!-- RIGHT PANEL - GALLERY -->
         <div id="right" class="closed">
             <h4>PhotoForge Studio Gallery</h4>
             <div id="local-gallery" class="gallery-section"></div>
         </div>
 
-        <!-- LEFT TOGGLE BUTTON -->
         <button id="left-toggle-btn" title="Toggle Adjustments & Basic Tools">
             <i class="fa-solid fa-chevron-right"></i>
         </button>
 
-        <!-- MODAL -->
         <div class="pf-modal-overlay" id="pf-modal">
             <div class="pf-modal-box">
                 <button class="pf-modal-close-btn" id="pf-modal-close"><i class="fa-solid fa-times"></i></button>
@@ -1049,78 +1148,75 @@
         (function() {
             'use strict';
 
-            // ================= DOM REFS =================
-            const appEl = document.getElementById('pf-app');
-            const editorWrapper = document.getElementById('pf-editor-wrapper');
-            const editorEl = document.getElementById('tui-image-editor');
-            const loadingOverlay = document.getElementById('pf-loading');
-            const fileInput = document.getElementById('pf-file-input');
-            const toastEl = document.getElementById('pf-toast');
-            const modalOverlay = document.getElementById('pf-modal');
-            const modalTitle = document.getElementById('pf-modal-title');
-            const modalBody = document.getElementById('pf-modal-body');
-            const modalActions = document.getElementById('pf-modal-actions');
-            const modalClose = document.getElementById('pf-modal-close');
-            const localGallery = document.getElementById('local-gallery');
-            const leftPanel = document.getElementById('left');
-            const rightPanel = document.getElementById('right');
-            const leftToggleBtn = document.getElementById('left-toggle-btn');
-            const btnToggleGallery = document.getElementById('pf-btn-toggle-gallery');
+            var appEl = document.getElementById('pf-app');
+            var editorWrapper = document.getElementById('pf-editor-wrapper');
+            var editorEl = document.getElementById('tui-image-editor');
+            var loadingOverlay = document.getElementById('pf-loading');
+            var fileInput = document.getElementById('pf-file-input');
+            var toastEl = document.getElementById('pf-toast');
+            var modalOverlay = document.getElementById('pf-modal');
+            var modalTitle = document.getElementById('pf-modal-title');
+            var modalBody = document.getElementById('pf-modal-body');
+            var modalActions = document.getElementById('pf-modal-actions');
+            var modalClose = document.getElementById('pf-modal-close');
+            var localGallery = document.getElementById('local-gallery');
+            var leftPanel = document.getElementById('left');
+            var rightPanel = document.getElementById('right');
+            var leftToggleBtn = document.getElementById('left-toggle-btn');
+            var btnToggleGallery = document.getElementById('pf-btn-toggle-gallery');
 
-            const btnUpload = document.getElementById('pf-btn-upload');
-            const btnUndo = document.getElementById('pf-btn-undo');
-            const btnRedo = document.getElementById('pf-btn-redo');
-            const btnReset = document.getElementById('pf-btn-reset');
-            const btnDlPng = document.getElementById('pf-btn-download-png');
-            const btnDlJpeg = document.getElementById('pf-btn-download-jpeg');
-            const btnDlWebp = document.getElementById('pf-btn-download-webp');
-            const btnCompress = document.getElementById('pf-btn-compress');
-            const btnUpscale = document.getElementById('pf-btn-upscale');
-            const btnBgRemove = document.getElementById('pf-btn-bg-remove');
-            const btnWatermark = document.getElementById('pf-btn-watermark');
-            const btnBlur = document.getElementById('pf-btn-blur');
-            const btnHtmlImg = document.getElementById('pf-btn-html-img');
-            const btnResize = document.getElementById('pf-btn-resize');
-            const btnCrop = document.getElementById('pf-btn-crop');
-            const btnRotate = document.getElementById('pf-btn-rotate');
-            const btnFilterRainbow = document.getElementById('pf-btn-filter-rainbow');
-            const btnFilterSunset = document.getElementById('pf-btn-filter-sunset');
-            const btnFilterPrison = document.getElementById('pf-btn-filter-prison');
-            const btnFilterCrumble = document.getElementById('pf-btn-filter-crumble');
-            const btnSaveLocal = document.getElementById('pf-btn-save-local');
+            var btnUpload = document.getElementById('pf-btn-upload');
+            var btnUndo = document.getElementById('pf-btn-undo');
+            var btnRedo = document.getElementById('pf-btn-redo');
+            var btnReset = document.getElementById('pf-btn-reset');
+            var btnDlPng = document.getElementById('pf-btn-download-png');
+            var btnDlJpeg = document.getElementById('pf-btn-download-jpeg');
+            var btnDlWebp = document.getElementById('pf-btn-download-webp');
+            var btnCompress = document.getElementById('pf-btn-compress');
+            var btnUpscale = document.getElementById('pf-btn-upscale');
+            var btnBgRemove = document.getElementById('pf-btn-bg-remove');
+            var btnWatermark = document.getElementById('pf-btn-watermark');
+            var btnBlur = document.getElementById('pf-btn-blur');
+            var btnHtmlImg = document.getElementById('pf-btn-html-img');
+            var btnResize = document.getElementById('pf-btn-resize');
+            var btnCrop = document.getElementById('pf-btn-crop');
+            var btnRotate = document.getElementById('pf-btn-rotate');
+            var btnFilterRainbow = document.getElementById('pf-btn-filter-rainbow');
+            var btnFilterSunset = document.getElementById('pf-btn-filter-sunset');
+            var btnFilterPrison = document.getElementById('pf-btn-filter-prison');
+            var btnFilterCrumble = document.getElementById('pf-btn-filter-crumble');
+            var btnSaveLocal = document.getElementById('pf-btn-save-local');
 
-            const sliderExposure = document.getElementById('pf-slider-exposure');
-            const sliderSaturation = document.getElementById('pf-slider-saturation');
-            const sliderHue = document.getElementById('pf-slider-hue');
-            const sliderBlur = document.getElementById('pf-slider-blur');
-            const sliderOpacity = document.getElementById('pf-slider-opacity');
-            const valExposure = document.getElementById('pf-slider-exposure-val');
-            const valSaturation = document.getElementById('pf-slider-saturation-val');
-            const valHue = document.getElementById('pf-slider-hue-val');
-            const valBlur = document.getElementById('pf-slider-blur-val');
-            const valOpacity = document.getElementById('pf-slider-opacity-val');
+            var sliderExposure = document.getElementById('pf-slider-exposure');
+            var sliderSaturation = document.getElementById('pf-slider-saturation');
+            var sliderHue = document.getElementById('pf-slider-hue');
+            var sliderBlur = document.getElementById('pf-slider-blur');
+            var sliderOpacity = document.getElementById('pf-slider-opacity');
+            var valExposure = document.getElementById('pf-slider-exposure-val');
+            var valSaturation = document.getElementById('pf-slider-saturation-val');
+            var valHue = document.getElementById('pf-slider-hue-val');
+            var valBlur = document.getElementById('pf-slider-blur-val');
+            var valOpacity = document.getElementById('pf-slider-opacity-val');
 
-            // ================= STATE =================
-            let imageEditor = null;
-            let isReady = false;
-            let toastTimeout = null;
-            let originalDataURL = null;
-            let blurModeActive = false;
-            let blurStartPos = null;
-            let filterState = { exposure: 0, saturation: 100, hue: 0, blur: 0, opacity: 100 };
-            const historyStack = [];
-            let historyIndex = -1;
-            let isLeftPanelOpen = false;
-            let isRightPanelOpen = false;
-            let db = null;
-            const DB_NAME = 'PhotoForgeDB';
-            const DB_VERSION = 1;
-            const STORE_NAME = 'images';
-            const AUTO_SAVE_KEY = 'auto-save-current';
-            let autoSaveTimer = null;
-            let autoSaveTimerDebounce = null;
+            var imageEditor = null;
+            var isReady = false;
+            var toastTimeout = null;
+            var originalDataURL = null;
+            var blurModeActive = false;
+            var blurStartPos = null;
+            var filterState = { exposure: 0, saturation: 100, hue: 0, blur: 0, opacity: 100 };
+            var historyStack = [];
+            var historyIndex = -1;
+            var isLeftPanelOpen = false;
+            var isRightPanelOpen = false;
+            var db = null;
+            var DB_NAME = 'PhotoForgeDB';
+            var DB_VERSION = 1;
+            var STORE_NAME = 'images';
+            var AUTO_SAVE_KEY = 'auto-save-current';
+            var autoSaveTimer = null;
+            var autoSaveTimerDebounce = null;
 
-            // ================= UTILS =================
             function showToast(msg, duration) {
                 duration = duration || 2000;
                 if (toastTimeout) clearTimeout(toastTimeout);
@@ -1141,7 +1237,6 @@
             modalClose.addEventListener('click', closeModal);
             modalOverlay.addEventListener('click', function(e) { if (e.target === modalOverlay) closeModal(); });
 
-            // ================= PANEL TOGGLES =================
             function toggleLeftPanel(forceState) {
                 if (typeof forceState === 'boolean') isLeftPanelOpen = forceState;
                 else isLeftPanelOpen = !isLeftPanelOpen;
@@ -1181,12 +1276,10 @@
                     showToast('📂 Gallery shown'); } else { showToast('📁 Gallery hidden'); }
             });
 
-            // Start with left panel open on desktop for discoverability
             if (window.innerWidth > 800) {
                 setTimeout(function() { toggleLeftPanel(true); }, 800);
             }
 
-            // ================= INDEXEDDB =================
             function openDB() {
                 return new Promise(function(resolve, reject) {
                     var req = indexedDB.open(DB_NAME, DB_VERSION);
@@ -1306,7 +1399,6 @@
                 }).catch(function(e) { console.error(e); });
             }
 
-            // ================= AUTO-SAVE =================
             function autoSave() {
                 if (!isReady) return;
                 var dataURL = getDataURL('png', 1.0);
@@ -1321,7 +1413,6 @@
                 autoSaveTimer = setInterval(autoSave, interval);
             }
 
-            // ================= TUI INIT =================
             var darkThemeConfig = {
                 'common.backgroundColor': '#0a0a14',
                 'common.border': '1px solid rgba(26,82,118,0.35)',
@@ -1442,7 +1533,6 @@
                 autoSaveTimerDebounce = setTimeout(autoSave, 2000);
             }
 
-            // ================= HISTORY =================
             function pushHistory() {
                 if (!isReady) return;
                 var dataURL = getDataURL('png', 1.0);
@@ -1472,7 +1562,6 @@
                     .catch(function() { showToast('⚠️ Redo failed'); });
             }
 
-            // ================= IMAGE HELPERS =================
             function getDataURL(format, quality) {
                 quality = quality || 0.92;
                 if (!imageEditor || !isReady) return null;
@@ -1505,7 +1594,6 @@
                 } catch (err) { return Promise.reject(err); }
             }
 
-            // ================= DOWNLOAD =================
             function downloadImage(format) {
                 format = format || 'png';
                 if (!isReady) { showToast('⚠️ Editor not ready'); return; }
@@ -1523,7 +1611,6 @@
                 } catch (err) { showToast('⚠️ Download failed'); }
             }
 
-            // ================= UPLOAD =================
             function uploadImage(file) {
                 if (!file || !file.type.startsWith('image/')) { showToast('⚠️ Invalid file'); return; }
                 if (!isReady) { showToast('⚠️ Editor not ready'); return; }
@@ -1541,7 +1628,6 @@
                 reader.readAsDataURL(file);
             }
 
-            // ================= RESET =================
             function resetToOriginal() {
                 if (!isReady) { showToast('⚠️ Not ready'); return; }
                 var src = originalDataURL || 'https://picsum.photos/id/1018/1200/800';
@@ -1570,7 +1656,6 @@
                 applyFilterState();
             }
 
-            // ================= FILTER STATE =================
             function applyFilterState() {
                 var canvas = document.querySelector('#tui-image-editor canvas.lower-canvas');
                 if (!canvas) return;
@@ -1606,7 +1691,6 @@
                 }, 300);
             }
 
-            // ================= CUSTOM FILTERS =================
             function applyCanvasFilter(filterType) {
                 if (!isReady) { showToast('⚠️ Not ready'); return; }
                 getImageObject().then(function(img) {
@@ -1690,7 +1774,6 @@
                     showToast('⚠️ Filter failed'); });
             }
 
-            // ================= COMPRESS =================
             function compressImage() {
                 if (!isReady) { showToast('⚠️ Not ready'); return; }
                 showModal('Compress Image',
@@ -1719,7 +1802,6 @@
                 document.getElementById('pf-compress-cancel').addEventListener('click', closeModal);
             }
 
-            // ================= UPSCALE =================
             function upscaleImage() {
                 if (!isReady) { showToast('⚠️ Not ready'); return; }
                 showModal('Upscale Image',
@@ -1749,7 +1831,6 @@
                 document.getElementById('pf-upscale-cancel').addEventListener('click', closeModal);
             }
 
-            // ================= BG REMOVE =================
             function removeBackground() {
                 if (!isReady) { showToast('⚠️ Not ready'); return; }
                 showModal('Remove Background',
@@ -1806,7 +1887,6 @@
                 document.getElementById('pf-bg-cancel').addEventListener('click', closeModal);
             }
 
-            // ================= WATERMARK =================
             function addWatermark() {
                 if (!isReady) { showToast('⚠️ Not ready'); return; }
                 showModal('Add Watermark',
@@ -1880,7 +1960,6 @@
                 document.getElementById('pf-wm-cancel').addEventListener('click', closeModal);
             }
 
-            // ================= BLUR REGION =================
             function startBlurMode() {
                 if (!isReady) { showToast('⚠️ Not ready'); return; }
                 if (blurModeActive) { blurModeActive = false;
@@ -1946,7 +2025,6 @@
                 img.src = dataURL;
             }
 
-            // ================= HTML TO IMAGE =================
             function htmlToImageCapture() {
                 showModal('HTML to Image',
                     '<p style="font-size:0.7rem;">Capture current view as image using html2canvas.</p>',
@@ -1972,7 +2050,6 @@
                 document.getElementById('pf-html-cancel').addEventListener('click', closeModal);
             }
 
-            // ================= EXACT RESIZE =================
             function exactResize() {
                 if (!isReady) { showToast('⚠️ Not ready'); return; }
                 showModal('Exact Resize',
@@ -2007,21 +2084,18 @@
                 document.getElementById('pf-resize-cancel').addEventListener('click', closeModal);
             }
 
-            // ================= CROP =================
             function activateCrop() {
                 if (!isReady) { showToast('⚠️ Not ready'); return; }
                 try { imageEditor.startDrawingMode('CROPPER');
                     showToast('✂️ Crop mode active'); } catch (e) { showToast('⚠️ Crop failed'); }
             }
 
-            // ================= ROTATE =================
             function rotateImage() {
                 if (!isReady) { showToast('⚠️ Not ready'); return; }
                 try { imageEditor.rotate(90);
                     showToast('🔄 Rotated 90°'); } catch (e) { showToast('⚠️ Rotate failed'); }
             }
 
-            // ================= SAVE LOCAL =================
             function saveLocal() {
                 if (!isReady) { showToast('⚠️ Not ready'); return; }
                 showModal('Save to Local Storage',
@@ -2045,7 +2119,6 @@
                 document.getElementById('pf-save-cancel').addEventListener('click', closeModal);
             }
 
-            // ================= DRAG & DROP =================
             function setupDragDrop() {
                 editorWrapper.addEventListener('dragover', function(e) { e.preventDefault(); });
                 editorWrapper.addEventListener('drop', function(e) {
@@ -2056,7 +2129,6 @@
                 document.addEventListener('drop', function(e) { e.preventDefault(); });
             }
 
-            // ================= PASTE =================
             function setupPaste() {
                 document.addEventListener('paste', function(e) {
                     var items = e.clipboardData && e.clipboardData.items;
@@ -2072,7 +2144,6 @@
                 });
             }
 
-            // ================= EVENTS =================
             function setupEvents() {
                 if (btnUpload) btnUpload.addEventListener('click', function() { fileInput.click(); });
                 if (fileInput) fileInput.addEventListener('change', function() {
@@ -2175,9 +2246,18 @@
                         .top);
                     blurStartPos = null;
                 });
+
+                var resizeTimeout;
+                window.addEventListener('resize', function() {
+                    clearTimeout(resizeTimeout);
+                    resizeTimeout = setTimeout(function() {
+                        if (imageEditor && isReady) {
+                            try { imageEditor.ui.resizeEditor(); } catch (e) {}
+                        }
+                    }, 250);
+                });
             }
 
-            // ================= STARTUP =================
             function startup() {
                 initEditor();
                 setupEvents();
